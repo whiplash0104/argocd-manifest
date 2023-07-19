@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app1-dp
+  name: app-argocd-dp
   labels:
-    app: app1
-  namespace: ns-app1
+    app: app-argocd
+  namespace: app-argocd
 spec:
   selector:
     matchLabels:
-      app: app1
+      app: app-argocd
   replicas: 3
   template:
     metadata:
       labels:
-        app: app1
+        app: app-argocd
     spec:
       imagePullSecrets:
       - name: ocirsecret
       containers:
       - name: app1
-        image: iad.ocir.io/idlhjo6dp3bd/app1:latest
+        image: iad.ocir.io/idlhjo6dp3bd/app-argocd:latest
         ports:
         - containerPort: 80

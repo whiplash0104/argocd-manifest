@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: app1-svc
-  namespace: ns-app1
+  name: app-argocd-svc
+  namespace: app-argocd
 spec:
   selector:
-    app: app1
+    app: app-argocd
   ports:
     - port: 8088
       targetPort: 80
